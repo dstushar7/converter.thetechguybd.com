@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.text-area {
+    width: 45%;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+button {
+    margin: 10px;
+}

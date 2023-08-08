@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <textarea class="text-area" name="unicode" rows="10" cols="30"></textarea>
+        <div class="buttons">
+            <button type="button" onclick="convert(1)">Unicode to Bijoy</button>
+        </div>
+        <textarea class="text-area" name="bijoy" rows="10" cols="30"></textarea>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
