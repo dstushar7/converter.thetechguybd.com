@@ -28,17 +28,9 @@ def preg_replace(srcKey, keyVal, text):
 
 def replace_eKar_after_whitespace(text):
     result = []
-    i = 0
-    if text.startswith('‡'):
-        result.append('†')
-        i += 1
-    while i < len(text):
-        if i < len(text) - 1 and text[i] == ' ' and text[i + 1] == '‡':
-            result.append(text[i])  # Append the whitespace
-            result.append('†')      # Replace '‡' with '†'
-            i += 1                  # Skip the next character
+    for i, char in enumerate(text):
+        if char == "‡" and (i == 0 or text[i - 1] in [" ", "\n"]):
+            result.append("†")
         else:
-            result.append(text[i])
-        i += 1
-    return ''.join(result)
-
+            result.append(char)
+    return "".join(result)
