@@ -25,7 +25,7 @@ def preg_replace(srcKey, keyVal, text):
     #srcKey = "@"+srcKey+"@"
     return re.sub(srcKey, keyVal, text)
 
-
+# New Add
 def replace_eKar_after_whitespace(text):
     result = []
     for i, char in enumerate(text):
