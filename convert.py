@@ -604,7 +604,7 @@ class Unicode:
 		srcString = "".join(srcString)
 		srcString = srcString[2:]
 		srcString = util.replace_eKar_after_whitespace(srcString)
-		srcString = srcString.replace("Low", "Lwo")
+		srcString = srcString.replace("ow", "wo")
 		return srcString
 		#return ftext
 
