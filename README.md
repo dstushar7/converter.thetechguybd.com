@@ -1,16 +1,16 @@
-# Selenium Automation Project
+# Converting Bengali Unicode language to Bijoy Bangla
 
-This project automates interactions with the Coupang website and scraping required datas using Selenium and a Chrome extension. This project was delivered to a client and I have made the code public with his consent.
+This project is completed with Flask framework to give a simple UI to convert Bengali Unicode to Bijoy. 
 
 ## What I learned in this project :
-- Automate a browser and installing a custom extension in it.
-- Crawling in a web page to fetch certain data.
-- Writing the data to a text file.
+- How Template Engines work in Flask Framework.
+- How to use Flask Framework.
+- Logical differences and Mapping of Unicode and  Bijoy 
 
 ## Prerequisites
 
 - Python 3.12.0
-- Google Chrome
+- Any Browser
 
 ## Instructions
 
@@ -27,17 +27,17 @@ Create a virtual environment to manage your project dependencies.
 cd path/to/your/project
 
 # Create a virtual environment named 'coupang'
-python -m venv coupang
+python -m venv convertApp
 ```
 ### 3. Activate Virtual Environment
 
 ```bash
 # On Windows
-.\coupang\Scripts\activate
+.\convertApp\Scripts\activate
 
 
 # On macOS/Linux
-source coupang/bin/activate
+source convertApp/bin/activate
 ```
 
 ### 4. Install Requirements
@@ -45,8 +45,13 @@ source coupang/bin/activate
 pip install -r requirements.txt
 ```
 
-### 5. Run the main script
+### 5. Run the main script to run the flask application
 
 ```bash
-python main.py
+python converter.py
 ```
+### 6. Go to browser and visit http://127.0.0.1:5000/
+The application will take input from user and convert Bengali Unicode to Bijoy Bangla when the button is clicked. Image is added for reference
+
+![Screenshot](Working-site.png)
+
