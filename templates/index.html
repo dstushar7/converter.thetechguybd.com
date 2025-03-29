@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Converter</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Use path='styles.css' because in FastAPI, the parameter is named "path" not "filename" -->
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
 </head>
 <body>
     <div class="container">
@@ -14,6 +15,7 @@
         </div>
         <textarea class="text-area bijoy" name="bijoy" rows="10" cols="30"></textarea>
     </div>
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <!-- Same note: use path='script.js' -->
+    <script src="{{ url_for('static', path='scripts.js') }}"></script>
 </body>
 </html>
