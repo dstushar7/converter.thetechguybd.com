@@ -60,10 +60,10 @@ Below are the Docker run commands. You can pull the image from Docker Hub (dstus
 
 ```bash
 # Pull the image from Docker Hub
-docker pull dstushar7/unicode-to-converter:latest
+docker pull dstushar7/unicode-to-bijoy-converter:latest
 
 # Run the Docker container mapping port 8000
-docker run -p 8000:8000 dstushar7/unicode-to-converter:latest
+docker run -p 8000:8000 dstushar7/unicode-to-bijoy-converter:latest
 ```
 
 Once the container is running, open your browser and navigate to [http://localhost:8000](http://localhost:8000) to access the application.
