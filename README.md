@@ -1,57 +1,102 @@
-# Converting Bengali Unicode language to Bijoy Bangla
 
-This project is completed with Flask framework to give a simple UI to convert Bengali Unicode to Bijoy. 
+---
 
-## What I learned in this project :
-- How Template Engines work in Flask Framework.
-- How to use Flask Framework.
-- Logical differences and Mapping of Unicode and  Bijoy 
+# Unicode to Bijoy Bangla Converter
+
+This project provides a simple UI to convert Bengali Unicode text to Bijoy Bangla. Originally built using Flask, it has now been migrated to FastAPI and dockerized for easier deployment and portability.
+
+## What I Learned in This Project
+
+- How template engines work with web frameworks.
+- The differences between Flask and FastAPI.
+- Logical differences and mapping between Unicode and Bijoy encodings.
+- How to containerize a web application using Docker.
 
 ## Prerequisites
 
-- Python 3.12.0
-- Any Browser
+- [Docker](https://docs.docker.com/get-docker/) installed on your machine.
+- A web browser.
 
 ## Instructions
 
-### 1. Install Python
+### 1. Clone the Repository
 
-Ensure you have Python installed on your machine. You can download Python from [python.org](https://www.python.org/downloads/).
-
-### 2. Create a Virtual Environment
-
-Create a virtual environment to manage your project dependencies.
+Clone this repository to your local machine:
 
 ```bash
-# Navigate to your project directory
-cd path/to/your/project
-
-# Create a virtual environment named 'coupang'
-python -m venv convertApp
+git clone https://github.com/dstushar7/converter.thetechguybd.com.git
+cd converter.thetechguybd.com
 ```
-### 3. Activate Virtual Environment
+
+### 2. Build the Docker Image
+
+Build the Docker image using the provided Dockerfile. You can tag the image with a name that reflects its purpose:
 
 ```bash
-# On Windows
-.\convertApp\Scripts\activate
-
-
-# On macOS/Linux
-source convertApp/bin/activate
+docker build -t unicode-to-bijoy-converter .
 ```
 
-### 4. Install Requirements
-```bash
-pip install -r requirements.txt
-```
+### 3. Run the Docker Container
 
-### 5. Run the main script to run the flask application
+Run the Docker container, mapping port 8000 inside the container to port 8000 on your host:
 
 ```bash
-python converter.py
+docker run -p 8000:8000 unicode-to-bijoy-converter
 ```
-### 6. Go to browser and visit http://127.0.0.1:5000/
-The application will take input from user and convert Bengali Unicode to Bijoy Bangla when the button is clicked. Image is added for reference
 
-![Screenshot](Working-site.png)
+### 4. Access the Application
 
+Open your web browser and visit:
+
+```
+http://localhost:8000
+```
+
+The application will display a UI where you can input Bengali Unicode text and convert it to Bijoy Bangla when you click the conversion button.
+
+
+## You can also directly pull the project from DockerHub :
+Below are the Docker run commands. You can pull the image from Docker Hub (dstushar7/unicode-to-converter) and run it as follows:
+
+```bash
+# Pull the image from Docker Hub
+docker pull dstushar7/unicode-to-converter:latest
+
+# Run the Docker container mapping port 8000
+docker run -p 8000:8000 dstushar7/unicode-to-converter:latest
+```
+
+Once the container is running, open your browser and navigate to [http://localhost:8000](http://localhost:8000) to access the application.
+
+---
+
+## Project Structure
+
+A typical folder structure for this project is:
+
+```
+converter.thetechguybd.com/
+├── Dockerfile
+├── main.py
+├── requirements.txt
+├── static
+│   ├── script.js
+│   ├── styles.css
+│   └── SutonnyMJ.ttf
+├── templates
+│   └── index.html
+├── convert_util.py 
+└── convert.py     
+```
+
+---
+
+## Screenshots
+
+Below is a screenshot of the working application:
+
+![Working Site](Working-site.png)
+
+---
+
+With these instructions, you can now build, run, and share your Unicode to Bijoy Bangla Converter using Docker. Enjoy converting!
