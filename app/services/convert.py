@@ -288,191 +288,191 @@ class Unicode:
 			return True
 		return False
 
-	def reArrangeUnicodeConvertedText(self, str):
+	def reArrangeUnicodeConvertedText(self, str_val):
 
 		#mb_internal_encoding("UTF-8") # force multi-byte UTF-8 encoding
 
 		#global proConversionMap
 
-		#for (i = 0; i < mb_strlen(str); ++i)
+		#for (i = 0; i < mb_strlen(str_val); ++i)
 
 		i = 0
-		while i < util.mb_strlen(str):
+		while i < util.mb_strlen(str_val):
 			#  Change refs
 
-			if (i < (util.mb_strlen(str) - 1) and util.mbCharAt(str, i) == 'র' and self.IsBanglaHalant(util.mbCharAt(str, i + 1)) and not self.IsBanglaHalant(util.mbCharAt(str, i - 1))):
+			if (i < (util.mb_strlen(str_val) - 1) and util.mbCharAt(str_val, i) == 'র' and self.IsBanglaHalant(util.mbCharAt(str_val, i + 1)) and not self.IsBanglaHalant(util.mbCharAt(str_val, i - 1))):
 				j = 1
 				while (True):
 					if (i - j < 0):
 						break
 
-					if (self.IsBanglaBanjonborno(util.mbCharAt(str, i - j)) and self.IsBanglaHalant(util.mbCharAt(str, i - j - 1))):
+					if (self.IsBanglaBanjonborno(util.mbCharAt(str_val, i - j)) and self.IsBanglaHalant(util.mbCharAt(str_val, i - j - 1))):
 						j += 2
-					elif (j == 1 and self.IsBanglaKar(util.mbCharAt(str, i - j))):
+					elif (j == 1 and self.IsBanglaKar(util.mbCharAt(str_val, i - j))):
 						j += 1
 					else:
 						break
 
 
-				temp = util.subString(str, 0, i - j)
-				temp += util.mbCharAt(str, i)
-				temp += util.mbCharAt(str, i + 1)
-				temp += util.subString(str, i - j, i)
-				temp += util.subString(str, i + 2, util.mb_strlen(str))
-				str = temp
+				temp = util.subString(str_val, 0, i - j)
+				temp += util.mbCharAt(str_val, i)
+				temp += util.mbCharAt(str_val, i + 1)
+				temp += util.subString(str_val, i - j, i)
+				temp += util.subString(str_val, i + 2, util.mb_strlen(str_val))
+				str_val = temp
 				i += 1
 				continue
 
 			i += 1
 
-		#str = util.doCharMap(str, proConversionMap)
+		#str_val = util.doCharMap(str_val, proConversionMap)
 
-		#for (i = 0 i < mb_strlen(str) ++i)
+		#for (i = 0 i < mb_strlen(str_val) ++i)
 		i=0
-		while i<util.mb_strlen(str):
-			if (i < util.mb_strlen(str) - 1 and util.mbCharAt(str, i) == 'র' and self.IsBanglaHalant(util.mbCharAt(str, i + 1)) and not self.IsBanglaHalant(util.mbCharAt(str, i - 1)) and self.IsBanglaHalant(util.mbCharAt(str, i + 2))):
+		while i<util.mb_strlen(str_val):
+			if (i < util.mb_strlen(str_val) - 1 and util.mbCharAt(str_val, i) == 'র' and self.IsBanglaHalant(util.mbCharAt(str_val, i + 1)) and not self.IsBanglaHalant(util.mbCharAt(str_val, i - 1)) and self.IsBanglaHalant(util.mbCharAt(str_val, i + 2))):
 				j = 1
 				while (True):
 					if (i - j < 0):
 						break
 
-					if (self.IsBanglaBanjonborno(util.mbCharAt(str, i - j)) and self.IsBanglaHalant(util.mbCharAt(str, i - j - 1))):
+					if (self.IsBanglaBanjonborno(util.mbCharAt(str_val, i - j)) and self.IsBanglaHalant(util.mbCharAt(str_val, i - j - 1))):
 						j += 2
-					elif (j == 1 and self.IsBanglaKar(util.mbCharAt(str, i - j))):
+					elif (j == 1 and self.IsBanglaKar(util.mbCharAt(str_val, i - j))):
 						j += 1
 					else:
 						break
 
 
-				temp = util.subString(str, 0, i - j)
-				temp += util.mbCharAt(str, i)
-				temp += util.mbCharAt(str, i + 1)
-				temp += util.subString(str, i - j, i)
-				temp += util.subString(str, i + 2, util.mb_strlen(str))
-				str = temp
+				temp = util.subString(str_val, 0, i - j)
+				temp += util.mbCharAt(str_val, i)
+				temp += util.mbCharAt(str_val, i + 1)
+				temp += util.subString(str_val, i - j, i)
+				temp += util.subString(str_val, i + 2, util.mb_strlen(str_val))
+				str_val = temp
 				i += 1
 				continue
 
 
 			#  for 'Vowel + HALANT + Consonant' it should be 'HALANT + Consonant + Vowel'
-			if (i > 0 and util.mbCharAt(str, i) == '\u09CD' and (self.IsBanglaKar(util.mbCharAt(str, i - 1)) or self.IsBanglaNukta(util.mbCharAt(str, i - 1))) and i < util.mb_strlen(str) - 1):
-				temp = util.subString(str, 0, i - 1)
-				temp += util.mbCharAt(str, i)
-				temp += util.mbCharAt(str, i + 1)
-				temp += util.mbCharAt(str, i - 1)
-				temp += util.subString(str, i + 2, util.mb_strlen(str))
-				str = temp
+			if (i > 0 and util.mbCharAt(str_val, i) == '\u09CD' and (self.IsBanglaKar(util.mbCharAt(str_val, i - 1)) or self.IsBanglaNukta(util.mbCharAt(str_val, i - 1))) and i < util.mb_strlen(str_val) - 1):
+				temp = util.subString(str_val, 0, i - 1)
+				temp += util.mbCharAt(str_val, i)
+				temp += util.mbCharAt(str_val, i + 1)
+				temp += util.mbCharAt(str_val, i - 1)
+				temp += util.subString(str_val, i + 2, util.mb_strlen(str_val))
+				str_val = temp
 
 
 			#  for 'RA (\u09B0) + HALANT + Vowel' it should be 'Vowel + RA (\u09B0) + HALANT'
-			if (i > 0 and i < util.mb_strlen(str) - 1 and util.mbCharAt(str, i) == '\u09CD' and util.mbCharAt(str, i - 1) == '\u09B0' and util.mbCharAt(str, i - 2) != '\u09CD' and self.IsBanglaKar(util.mbCharAt(str, i + 1))):
-				temp = util.subString(str, 0, i - 1)
-				temp += util.mbCharAt(str, i + 1)
-				temp += util.mbCharAt(str, i - 1)
-				temp += util.mbCharAt(str, i)
-				temp += util.subString(str, i + 2, util.mb_strlen(str))
-				str = temp
+			if (i > 0 and i < util.mb_strlen(str_val) - 1 and util.mbCharAt(str_val, i) == '\u09CD' and util.mbCharAt(str_val, i - 1) == '\u09B0' and util.mbCharAt(str_val, i - 2) != '\u09CD' and self.IsBanglaKar(util.mbCharAt(str_val, i + 1))):
+				temp = util.subString(str_val, 0, i - 1)
+				temp += util.mbCharAt(str_val, i + 1)
+				temp += util.mbCharAt(str_val, i - 1)
+				temp += util.mbCharAt(str_val, i)
+				temp += util.subString(str_val, i + 2, util.mb_strlen(str_val))
+				str_val = temp
 
 			#  Change pre-kar to post format suitable for unicode
-			if (i < util.mb_strlen(str) - 1 and self.IsBanglaPreKar(util.mbCharAt(str, i)) and self.IsSpace(util.mbCharAt(str, i + 1)) == False):
+			if (i < util.mb_strlen(str_val) - 1 and self.IsBanglaPreKar(util.mbCharAt(str_val, i)) and self.IsSpace(util.mbCharAt(str_val, i + 1)) == False):
 
-				temp = util.subString(str, 0, i)
+				temp = util.subString(str_val, 0, i)
 
 				j = 1
-				while ((i + j) < util.mb_strlen(str) - 1 and self.IsBanglaBanjonborno(util.mbCharAt(str, i + j))):
-					if ((i + j) < util.mb_strlen(str) and self.IsBanglaHalant(util.mbCharAt(str, i + j + 1))):
+				while ((i + j) < util.mb_strlen(str_val) - 1 and self.IsBanglaBanjonborno(util.mbCharAt(str_val, i + j))):
+					if ((i + j) < util.mb_strlen(str_val) and self.IsBanglaHalant(util.mbCharAt(str_val, i + j + 1))):
 						j += 2
 					else:
 						break
 
-				temp += util.subString(str, i + 1, i + j + 1)
+				temp += util.subString(str_val, i + 1, i + j + 1)
 
 				l = 0
-				if (util.mbCharAt(str, i) == 'ে' and util.mbCharAt(str, i + j + 1) == 'া'):
+				if (util.mbCharAt(str_val, i) == 'ে' and util.mbCharAt(str_val, i + j + 1) == 'া'):
 					temp += "ো"
 					l = 1
-				elif (util.mbCharAt(str, i) == 'ে' and util.mbCharAt(str, i + j + 1) == "ৗ"):
+				elif (util.mbCharAt(str_val, i) == 'ে' and util.mbCharAt(str_val, i + j + 1) == "ৗ"):
 					temp += "ৌ"
 					l = 1
 				else:
-					temp += util.mbCharAt(str, i)
+					temp += util.mbCharAt(str_val, i)
 
-				temp += util.subString(str, i + j + l + 1, util.mb_strlen(str))
-				str = temp
+				temp += util.subString(str_val, i + j + l + 1, util.mb_strlen(str_val))
+				str_val = temp
 				i += j
 
 			#  nukta should be placed after kars
-			if (i < util.mb_strlen(str) - 1 and self.IsBanglaNukta(util.mbCharAt(str, i)) and self.IsBanglaPostKar(util.mbCharAt(str, i + 1))):
-				temp = util.subString(str, 0, i)
-				temp += util.mbCharAt(str, i + 1)
-				temp += util.mbCharAt(str, i)
-				temp += util.subString(str, i + 2, util.mb_strlen(str))
-				str = temp
+			if (i < util.mb_strlen(str_val) - 1 and self.IsBanglaNukta(util.mbCharAt(str_val, i)) and self.IsBanglaPostKar(util.mbCharAt(str_val, i + 1))):
+				temp = util.subString(str_val, 0, i)
+				temp += util.mbCharAt(str_val, i + 1)
+				temp += util.mbCharAt(str_val, i)
+				temp += util.subString(str_val, i + 2, util.mb_strlen(str_val))
+				str_val = temp
 
 			i += 1
-		return str
+		return str_val
 
-	def reArranceUnicodeTextForASCI(self, str):
+	def reArranceUnicodeTextForASCI(self, str_val):
 
 		cY = 0
 		i = 0
 
-		#for ($i = 0; $i < util.mb_strlen(str); ++$i)
-		while i<util.mb_strlen(str):
+		#for ($i = 0; $i < util.mb_strlen(str_val); ++$i)
+		while i<util.mb_strlen(str_val):
 
-			if(i<util.mb_strlen(str) and self.IsBanglaPreKar(util.mbCharAt(str,i))):
+			if(i<util.mb_strlen(str_val) and self.IsBanglaPreKar(util.mbCharAt(str_val,i))):
 				j=1
-				while self.IsBanglaBanjonborno(util.mbCharAt(str,i-j)):
+				while self.IsBanglaBanjonborno(util.mbCharAt(str_val,i-j)):
 					if (i-j)<0:
 						break
 					if (i-j)<=cY:
 						break
-					if self.IsBanglaHalant(util.mbCharAt(str,i-j-1)):
+					if self.IsBanglaHalant(util.mbCharAt(str_val,i-j-1)):
 						j+=2
 					else:
 						break
 
-				R = util.subString(str,0, i-j)
-				R += util.mbCharAt(str,i)
-				R += util.subString(str,i-j, i)
-				R += util.subString(str,i+1, util.mb_strlen(str))
+				R = util.subString(str_val,0, i-j)
+				R += util.mbCharAt(str_val,i)
+				R += util.subString(str_val,i-j, i)
+				R += util.subString(str_val,i+1, util.mb_strlen(str_val))
 
-				str = R
+				str_val = R
 
 				cY= i+1
 				continue
 
 
-			if i<(util.mb_strlen(str)-1) and self.IsBanglaHalant(util.mbCharAt(str,i)) and util.mbCharAt(str,i-1)=='র' and not self.IsBanglaHalant(util.mbCharAt(str,i-2)):
+			if i<(util.mb_strlen(str_val)-1) and self.IsBanglaHalant(util.mbCharAt(str_val,i)) and util.mbCharAt(str_val,i-1)=='র' and not self.IsBanglaHalant(util.mbCharAt(str_val,i-2)):
 				j=1
 				aZ=0
 
 				while True:
-					if self.IsBanglaBanjonborno(util.mbCharAt(str,i+j)) and self.IsBanglaHalant(util.mbCharAt(str,i+j+1)):
+					if self.IsBanglaBanjonborno(util.mbCharAt(str_val,i+j)) and self.IsBanglaHalant(util.mbCharAt(str_val,i+j+1)):
 						j+=2
 
-					elif self.IsBanglaBanjonborno(util.mbCharAt(str,i+j)) and self.IsBanglaPreKar(util.mbCharAt(str,i+j+1)):
+					elif self.IsBanglaBanjonborno(util.mbCharAt(str_val,i+j)) and self.IsBanglaPreKar(util.mbCharAt(str_val,i+j+1)):
 						aZ=1
 						break
 
 					else:
 						break
 
-				R  = util.subString(str,0, i-1)
-				R += util.subString(str, i+j+1, i+j+aZ+1)
-				R += util.subString(str, i+1, i+j+1)
-				R += util.mbCharAt(str, i-1)
-				R += util.mbCharAt(str, i)
-				R += util.subString(str, i+j+aZ+1, util.mb_strlen(str))
+				R  = util.subString(str_val,0, i-1)
+				R += util.subString(str_val, i+j+1, i+j+aZ+1)
+				R += util.subString(str_val, i+1, i+j+1)
+				R += util.mbCharAt(str_val, i-1)
+				R += util.mbCharAt(str_val, i)
+				R += util.subString(str_val, i+j+aZ+1, util.mb_strlen(str_val))
 
-				str = R
+				str_val = R
 
 				i+=(j+aZ)
 				cY=i+1
 				continue
 
 			i += 1
-		return str
+		return str_val
 
 
 	def convertUnicodeToBijoy(self, srcString):

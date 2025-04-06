@@ -8,15 +8,14 @@ def doCharMap(text, charMap):
     return text
 
 
-def mb_strlen(str):
-    return len(str)
+def mb_strlen(str_val):
+    return len(str_val)
 
 
-# returns the i-th byte of the multi-byte string str
-def mbCharAt(str, i):
-    # return mb_substr(str, i, 1)
+# returns the i-th byte of the multi-byte string str_val
+def mbCharAt(str_val, i):
     try:
-        return str[i]
+        return str_val[i]
     except:
         pass
 
