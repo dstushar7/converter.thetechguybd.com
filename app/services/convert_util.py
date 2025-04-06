@@ -1,5 +1,5 @@
 import re
-from services import convert as doConvert
+from app.services import convert as doConvert
 
 
 def doCharMap(text, charMap):
