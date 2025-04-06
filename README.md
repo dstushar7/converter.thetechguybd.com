@@ -76,17 +76,25 @@ A typical folder structure for this project is:
 
 ```
 converter.thetechguybd.com/
+├── app/
+│   ├── __init__.py
+│   ├── main.py               # FastAPI app entrypoint
+│   ├── api/                  # All route handlers
+│   │   ├── __init__.py
+│   │   └── routes.py         # All endpoints
+│   ├── services/             # Business logic
+│   │   ├── __init__.py
+│   │   ├── convert_util.py
+│   │   └── convert.py
+│   ├── static/               # Static files
+│   │   ├── script.js
+│   │   ├── styles.css
+│   │   └── SutonnyMJ.ttf
+│   ├── templates/            # HTML templates
+│       └── index.html
 ├── Dockerfile
-├── main.py
 ├── requirements.txt
-├── static
-│   ├── script.js
-│   ├── styles.css
-│   └── SutonnyMJ.ttf
-├── templates
-│   └── index.html
-├── convert_util.py 
-└── convert.py     
+└── README.md   
 ```
 
 ---
