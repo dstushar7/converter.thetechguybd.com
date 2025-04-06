@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
-from services.convert_util import unicode_to_bijoy, bijoy_to_unicode
+from app.services.convert_util import unicode_to_bijoy, bijoy_to_unicode
 
 
 router = APIRouter()
